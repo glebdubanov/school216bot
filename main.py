@@ -7,6 +7,8 @@ School_site='http://sch216nsk.edu54.ru/'
 School_spravka='http://sch216nsk.edu54.ru/spravki'
 School_dnevnik='https://school.nso.ru'
 School_vkontakte='https://vk.com/maousosh216'
+School_forma='http://sch216nsk.edu54.ru/uploads/oo/doc/polozhenie_o_trebovanii_k_forme_obuchayushyihsya.pdf'
+
 @bot.message_handler(commands=['start', 'main', 'hello'])
 def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)  # Меню кнопок
@@ -71,7 +73,7 @@ def main(message):
     file2 = open('./forma.jpeg', 'rb')
     markup = types.InlineKeyboardMarkup()
     markup.add(types.InlineKeyboardButton('Положение о требованиях к форме обучающихся',
-                                          url='http://sch216nsk.edu54.ru/uploads/oo/doc/polozhenie_o_trebovanii_k_forme_obuchayushyihsya.pdf'))
+                                          url=School_forma))
     bot.send_photo(message.chat.id, photo=file2, caption='👔 <b>О форме</b>\n'
                                                          '\nПо уставу МАОУ СОШ №216 все учащиеся обязаны носить школьную форму установленного образца.\n'
                                                          '\nШкольная форма подразделяется на парадную, повседневную и спортивную.\n'
@@ -83,7 +85,7 @@ def main(message):
 def main(message):
     markup = types.InlineKeyboardMarkup()
     markup.add(types.InlineKeyboardButton('Госпаблик ВКонтакте',
-                                          url='https://vk.com/maousosh216'))
+                                          url=School_vkontakte))
     markup.add(types.InlineKeyboardButton('Обращение граждан МАОУ СОШ №216',
                                           url='https://forms.yandex.ru/u/5e55d8b5a9a45e0a0ef27d06/'))
     bot.send_message(message.chat.id,
@@ -203,7 +205,7 @@ def main(message):
 def main(message):
     markup = types.InlineKeyboardMarkup()
     markup.add(types.InlineKeyboardButton('Госпаблик ВКонтакте',
-                                          url='https://vk.com/maousosh216'))
+                                          url=School_vkontakte))
     markup.add(types.InlineKeyboardButton('Обращение граждан МАОУ СОШ №216',
                                           url='https://forms.yandex.ru/u/5e55d8b5a9a45e0a0ef27d06/'))
     bot.send_message(message.chat.id, '<b>️🤵🏼‍♀ ️Как поговорить с завучем?</b>\n' '\nЕсли у вас просьба, пожелание или вопрос к одному из заместителей директора, связаться с ним можно согласно нижеследующему графику дежурств:\n'
@@ -321,7 +323,7 @@ def handle_message(message):
             file2 = open('./forma.jpeg', 'rb')
             markup = types.InlineKeyboardMarkup()
             markup.add(types.InlineKeyboardButton('Положение о требованиях к форме обучающихся',
-                                              url='http://sch216nsk.edu54.ru/uploads/oo/doc/polozhenie_o_trebovanii_k_forme_obuchayushyihsya.pdf'))
+                                              url=School_forma))
             bot.send_photo(message.chat.id, photo=file2, caption='<b>👔 О форме</b>\n'
                                                              '\nПо уставу МАОУ СОШ №216 все учащиеся обязаны носить школьную форму установленного образца.\n'
                                                              '\nШкольная форма подразделяется на парадную, повседневную и спортивную.\n'
@@ -332,7 +334,7 @@ def handle_message(message):
     elif message.text == 'Директор':
             markup = types.InlineKeyboardMarkup()
             markup.add(types.InlineKeyboardButton('Госпаблик ВКонтакте',
-                                              url='https://vk.com/maousosh216'))
+                                              url=School_vkontakte))
             markup.add(types.InlineKeyboardButton('Обращение граждан МАОУ СОШ №216',
                                               url='https://forms.yandex.ru/u/5e55d8b5a9a45e0a0ef27d06/'))
             bot.send_message(message.chat.id,
@@ -455,7 +457,7 @@ def handle_message(message):
     elif message.text == 'Завучи':
             markup = types.InlineKeyboardMarkup()
             markup.add(types.InlineKeyboardButton('Госпаблик ВКонтакте',
-                                                  url='https://vk.com/maousosh216'))
+                                                  url=School_vkontakte))
             markup.add(types.InlineKeyboardButton('Обращение граждан МАОУ СОШ №216',
                                                   url='https://forms.yandex.ru/u/5e55d8b5a9a45e0a0ef27d06/'))
             bot.send_message(message.chat.id, '️🤵🏼‍♀️‍ <b>Как поговорить с завучем?</b>\n' '\nЕсли у вас просьба, пожелание или вопрос к одному из заместителей директора, связаться с ним можно согласно нижеследующему графику дежурств:\n'
