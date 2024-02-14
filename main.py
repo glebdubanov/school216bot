@@ -5,6 +5,7 @@ from telebot import types
 bot = telebot.TeleBot('token', parse_mode='HTML')
 School_site='http://sch216nsk.edu54.ru/'
 School_spravka='http://sch216nsk.edu54.ru/spravki'
+School_dnevnik='https://school.nso.ru'
 @bot.message_handler(commands=['start', 'main', 'hello'])
 def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)  # Меню кнопок
@@ -44,7 +45,7 @@ def main(message):
 @bot.message_handler(commands=['dnevnik'])  # Команда Дневник, и что появляется после команды
 def main(message):
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton('Перейти в электронный дневник', url='https://school.nso.ru'))
+    markup.add(types.InlineKeyboardButton('Перейти в электронный дневник', url=School_dnevnik))
     bot.send_message(message.chat.id, '📔 Ниже нажмите на кнопку <b>"Перейти в электронный дневник"</b>',
                      reply_markup=markup)
 
@@ -299,7 +300,7 @@ def handle_message(message):
 
     elif message.text == 'Эл.дневник':
             markup = types.InlineKeyboardMarkup()
-            markup.add(types.InlineKeyboardButton('Перейти в электронный дневник', url='https://school.nso.ru'))
+            markup.add(types.InlineKeyboardButton('Перейти в электронный дневник', url=School_dnevnik))
             bot.send_message(message.chat.id, '📔 Ниже нажмите на кнопку <b>"Перейти в электронный дневник"</b>',
                              reply_markup=markup)
 
