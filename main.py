@@ -6,6 +6,7 @@ bot = telebot.TeleBot('token', parse_mode='HTML')
 School_site='http://sch216nsk.edu54.ru/'
 School_spravka='http://sch216nsk.edu54.ru/spravki'
 School_dnevnik='https://school.nso.ru'
+School_vkontakte='https://vk.com/maousosh216'
 @bot.message_handler(commands=['start', 'main', 'hello'])
 def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)  # Меню кнопок
@@ -60,7 +61,7 @@ def main(message):
 @bot.message_handler(commands=['vkontakte'])
 def main(message):
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton('Перейти в госпаблик ВКонтакте', url='https://vk.com/maousosh216'))
+    markup.add(types.InlineKeyboardButton('Перейти в госпаблик ВКонтакте', url=School_vkontakte))
     bot.send_message(message.chat.id, '🔵 Ниже нажмите на кнопку <b>"Перейти в госпаблик ВКонтакте"</b>',
                      reply_markup=markup)
 
@@ -312,7 +313,7 @@ def handle_message(message):
 
     elif message.text == 'Госпаблик ВКонтакте':
             markup = types.InlineKeyboardMarkup()
-            markup.add(types.InlineKeyboardButton('Перейти в госпаблик ВКонтакте', url='https://vk.com/maousosh216'))
+            markup.add(types.InlineKeyboardButton('Перейти в госпаблик ВКонтакте', url=School_vkontakte))
             bot.send_message(message.chat.id, '🔵 Ниже нажмите на кнопку <b>"Перейти в госпаблик ВКонтакте"</b>',
                              reply_markup=markup)
 
