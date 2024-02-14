@@ -2,8 +2,8 @@ import telebot
 from telebot import types
 
 
-bot = telebot.TeleBot('6364983863:AAHWGK9XMQOiD6JhCpzyU9CfxHUiyOMKDiY', parse_mode='HTML')
-
+bot = telebot.TeleBot('token', parse_mode='HTML')
+School_site='http://sch216nsk.edu54.ru/'
 @bot.message_handler(commands=['start', 'main', 'hello'])
 def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)  # Меню кнопок
@@ -51,7 +51,7 @@ def main(message):
 @bot.message_handler(commands=['site'])
 def main(message):
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton('Перейти на сайт школы', url='http://sch216nsk.edu54.ru/'))
+    markup.add(types.InlineKeyboardButton('Перейти на сайт школы', url=School_site))
     bot.send_message(message.chat.id, '⚪️ Ниже нажмите на кнопку <b>"Перейти на сайт школы"</b>', reply_markup=markup)
 
 
@@ -304,7 +304,7 @@ def handle_message(message):
 
     elif message.text == 'Сайт школы':
             markup = types.InlineKeyboardMarkup()
-            markup.add(types.InlineKeyboardButton('Перейти на сайт школы', url='http://sch216nsk.edu54.ru/'))
+            markup.add(types.InlineKeyboardButton('Перейти на сайт школы', url=School_site))
             bot.send_message(message.chat.id, '⚪️ Ниже нажмите на кнопку <b>"Перейти на сайт школы"</b>',
                              reply_markup=markup)
 
