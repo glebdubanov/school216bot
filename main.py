@@ -4,6 +4,7 @@ from telebot import types
 
 bot = telebot.TeleBot('token', parse_mode='HTML')
 School_site='http://sch216nsk.edu54.ru/'
+School_spravka='http://sch216nsk.edu54.ru/spravki'
 @bot.message_handler(commands=['start', 'main', 'hello'])
 def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)  # Меню кнопок
@@ -36,7 +37,7 @@ def get_photo(message):
 @bot.message_handler(commands=['spravka'])  # Команда Справка, и что появляется после команды
 def main(message):
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton('Перейти на сайт школы', url='http://sch216nsk.edu54.ru/spravki'))
+    markup.add(types.InlineKeyboardButton('Перейти на сайт школы', url=School_spravka))
     bot.send_message(message.chat.id, '📄 Для заказа справки <b>перейдите на сайт школы.</b>\n' '\nЗаполните данные о своем ребенке, и на следующий день ваша справка окажется на вахте.', reply_markup=markup)
 
 
@@ -293,7 +294,7 @@ def handle_message(message):
 
     elif message.text == 'Справка':
             markup = types.InlineKeyboardMarkup()
-            markup.add(types.InlineKeyboardButton('Перейти на сайт', url='http://sch216nsk.edu54.ru/spravki'))
+            markup.add(types.InlineKeyboardButton('Перейти на сайт', url=School_spravka))
             bot.send_message(message.chat.id, '📄 Для заказа справки <b>перейдите на сайт школы.</b>\n' '\nЗаполните данные о своем ребенке, и на следующий день ваша справка окажется на вахте.', reply_markup=markup)
 
     elif message.text == 'Эл.дневник':
