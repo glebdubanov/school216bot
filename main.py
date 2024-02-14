@@ -9,6 +9,8 @@ School_dnevnik='https://school.nso.ru'
 School_vkontakte='https://vk.com/maousosh216'
 School_forma='http://sch216nsk.edu54.ru/uploads/oo/doc/polozhenie_o_trebovanii_k_forme_obuchayushyihsya.pdf'
 School_obrashenie_gragdan='https://forms.yandex.ru/u/5e55d8b5a9a45e0a0ef27d06/'
+School_youtube='https://www.youtube.com/@No-eg8qq'
+School_rutube='https://rutube.ru/channel/25383693/'
 
 @bot.message_handler(commands=['start', 'main', 'hello'])
 def start(message):
@@ -97,14 +99,14 @@ def main(message):
 @bot.message_handler(commands=['youtube'])
 def main(message):
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton('Перейти на YouTube - канал школы', url='https://www.youtube.com/@No-eg8qq'))
+    markup.add(types.InlineKeyboardButton('Перейти на YouTube - канал школы', url=School_youtube))
     bot.send_message(message.chat.id, '🔴 Ниже нажмите на кнопку <b>"Перейти на YouTube - канал школы"</b>',
                      reply_markup=markup)
 
 @bot.message_handler(commands=['rutube'])
 def main(message):
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton('Перейти на Rutube - канал школы', url='https://rutube.ru/channel/25383693/'))
+    markup.add(types.InlineKeyboardButton('Перейти на Rutube - канал школы', url=School_rutube))
     bot.send_message(message.chat.id, '⚫️Ниже нажмите на кнопку <b>"Перейти на Rutube - канал школы"</b>',
                      reply_markup=markup)
 
@@ -394,7 +396,7 @@ def handle_message(message):
     elif message.text == 'YouTube - канал':
             markup = types.InlineKeyboardMarkup()
             markup.add(types.InlineKeyboardButton('Перейти на YouTube - канал школы',
-                                                  url='https://www.youtube.com/@No-eg8qq'))
+                                                  url=School_youtube))
             bot.send_message(message.chat.id, '🔴 Ниже нажмите на кнопку <b>"Перейти на YouTube - канал школы"</b>',
                              reply_markup=markup)
     elif message.text == 'Rutube - канал':
