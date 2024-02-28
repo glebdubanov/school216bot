@@ -1,7 +1,6 @@
 import telebot
 from telebot import types
 
-
 bot = telebot.TeleBot('token', parse_mode='HTML')
 School_site='http://sch216nsk.edu54.ru/'
 School_spravka='http://sch216nsk.edu54.ru/spravki'
@@ -11,6 +10,7 @@ School_forma='http://sch216nsk.edu54.ru/uploads/oo/doc/polozhenie_o_trebovanii_k
 School_obrashenie_gragdan='https://forms.yandex.ru/u/5e55d8b5a9a45e0a0ef27d06/'
 School_youtube='https://www.youtube.com/@No-eg8qq'
 School_rutube='https://rutube.ru/channel/25383693/'
+School_conschasdlyarodit='http://www.sch216nsk.edu54.ru/uploads/parents/graph_consult_s_rodit_2023_2024.pdf'
 
 @bot.message_handler(commands=['start', 'main', 'hello'])
 def start(message):
@@ -182,7 +182,7 @@ def main(message):
 def main(message):
     markup = types.InlineKeyboardMarkup()
     markup.add(types.InlineKeyboardButton('Конс. час для родителей',
-                                          url='http://www.sch216nsk.edu54.ru/uploads/parents/graph_consult_s_rodit_2023_2024.pdf'))
+                                          url=School_conschasdlyarodit))
     bot.send_message(message.chat.id, '👨‍👩‍👧‍👦 Ниже нажмите на кнопку <b>"Конс. час для родителей"</b>', reply_markup=markup)
 
 
@@ -408,7 +408,7 @@ def handle_message(message):
     elif message.text == 'Родители':
             markup = types.InlineKeyboardMarkup()
             markup.add(types.InlineKeyboardButton('Конс. час для родителей',
-                                                  url='http://www.sch216nsk.edu54.ru/uploads/parents/graph_consult_s_rodit_2023_2024.pdf'))
+                                                  url=School_conschasdlyarodit))
             bot.send_message(message.chat.id, '👨‍👩‍👧‍👦 Ниже нажмите на кнопку <b>"Конс. час для родителей"</b>',
                              reply_markup=markup)
     elif message.text == 'Дети':
