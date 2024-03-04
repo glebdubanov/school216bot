@@ -1,5 +1,8 @@
 import telebot
 from telebot import types
+from telebot import apihelper
+
+apihelper.API_URL = "https://tgrasp.co/bot{0}/{1}" # Для подключения к аналитике (graspil.com), нужно заменить api.telegram.org на (https://tgrasp.co) следующей командой, чтобы сервис проксировал все запросы к телеграм и собирал статистику.
 
 bot = telebot.TeleBot('token', parse_mode='HTML') # Токен бота, а ниже идут переменные для текста и URL-ссылок
 School_site='http://sch216nsk.edu54.ru/'
